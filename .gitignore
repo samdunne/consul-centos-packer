@@ -1,0 +1,9 @@
+# OSX
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Packer
+packer_cache/
+packer-*/
+builds/

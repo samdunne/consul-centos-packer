@@ -1,0 +1,17 @@
+{
+  "client_addr": "0.0.0.0",
+  "ports": {
+    "dns": 8600,
+    "http": 8500,
+    "rpc": 8400,
+    "serf_lan": 8301,
+    "serf_wan": 8302,
+    "server": 8300
+  },
+  "disable_anonymous_signature": true,
+  "disable_update_check": true,
+  "log_level": "INFO",
+  "bootstrap_expect": 1,
+  "server": true,
+  "ui_dir": "/opt/consul/dist"
+}
