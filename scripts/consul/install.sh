@@ -21,7 +21,8 @@ sudo mv /tmp/consul.json /etc/consul.d/consul.json
 
 echo "Installing service..."
 sudo mv /tmp/consul.init /etc/init.d/consul
-sudo chmod 0755 /etc/init.d/consul
+sudo chmod +x /etc/init.d/consul
+sudo chkconfig consul on
 
 echo "Downloading web ui..."
 cd /tmp

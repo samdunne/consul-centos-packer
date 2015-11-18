@@ -26,6 +26,8 @@
 exec="/usr/local/bin/consul"
 prog=${exec##*/}
 
+bind=$(ifconfig eth0 | grep "inet addr" | awk '{ print substr($2,6) }')
+
 lockfile="/var/lock/subsys/$prog"
 pidfile="/var/run/${prog}.pid"
 logfile="/var/log/${prog}.log"
@@ -42,7 +44,7 @@ start() {
 
     echo -n $"Starting $prog: "
     touch $logfile $pidfile
-    daemon "{ $exec agent $OPTIONS -config-dir=$confdir &>> $logfile & }; echo \$! >| $pidfile"
+    daemon "{ $exec agent $OPTIONS -bind=$bind -join=$bind -config-dir=$confdir &>> $logfile & }; echo \$! >| $pidfile"
 
     RETVAL=$?
     [ $RETVAL -eq 0 ] && touch $lockfile
