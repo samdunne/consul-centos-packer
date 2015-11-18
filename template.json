@@ -63,33 +63,35 @@
       "numvcpus": "1"
     }
   }],
-  "post-processors": [{
-    "output": "builds/{{user `box_basename`}}.{{.Provider}}.box",
-    "type": "vagrant",
-    "keep_input_artifact": false
-  }, {
-    "type": "atlas",
-    "only": ["virtualbox-iso"],
-    "token": "{{user `atlas_token`}}",
-    "artifact": "samdunne/consul-centos-6.7",
-    "artifact_type": "vagrant.box",
-    "metadata": {
-      "provider": "virtualbox",
-      "created_at": "{{timestamp}}",
-      "version": "{{user `version`}}"
-    }
-  }, {
-    "type": "atlas",
-    "only": ["vmware-iso"],
-    "token": "{{user `atlas_token`}}",
-    "artifact": "samdunne/consul-centos-6.7",
-    "artifact_type": "vagrant.box",
-    "metadata": {
-      "provider": "vmware_desktop",
-      "created_at": "{{timestamp}}",
-      "version": "{{user `version`}}"
-    }
-  }],
+  "post-processors": [
+    [{
+      "output": "builds/{{user `box_basename`}}.{{.Provider}}.box",
+      "type": "vagrant",
+      "keep_input_artifact": false
+    }, {
+      "type": "atlas",
+      "only": ["virtualbox-iso"],
+      "token": "{{user `atlas_token`}}",
+      "artifact": "samdunne/consul-centos-6.7",
+      "artifact_type": "vagrant.box",
+      "metadata": {
+        "provider": "virtualbox",
+        "created_at": "{{timestamp}}",
+        "version": "{{user `version`}}"
+      }
+    }, {
+      "type": "atlas",
+      "only": ["vmware-iso"],
+      "token": "{{user `atlas_token`}}",
+      "artifact": "samdunne/consul-centos-6.7",
+      "artifact_type": "vagrant.box",
+      "metadata": {
+        "provider": "vmware_desktop",
+        "created_at": "{{timestamp}}",
+        "version": "{{user `version`}}"
+      }
+    }]
+  ],
   "provisioners": [{
     "destination": "/tmp/consul.init",
     "source": "scripts/consul/consul.init",
