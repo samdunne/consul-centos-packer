@@ -135,6 +135,6 @@
     "name": "centos-6.7",
     "no_proxy": "{{env `no_proxy`}}",
     "template": "consul-centos-6.7-x86_64",
-    "version": "1.0.TIMESTAMP"
+    "version": "1.0.{{env `ATLAS_BUILD_NUMBER`}}"
   }
 }
