@@ -13,6 +13,7 @@ unzip consul.zip >/dev/null
 sudo chmod +x consul
 sudo mv consul /usr/local/bin/consul
 sudo mkdir -p /etc/consul.d
+sudo mkdir -p /var/lib/consul
 sudo mkdir -p /mnt/consul
 
 echo "Configuring Consul..."
